@@ -1,0 +1,9 @@
+./comparison-dir/*
+./comp-error-dir/*
+./executable-dir/*
+./load-test-output/*
+./output-dir/*
+./runerror-dir/*
+./submission-dir/*
+./utilization-outputs/*
+./vmstat-output/*
