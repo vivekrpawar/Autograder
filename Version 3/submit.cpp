@@ -21,6 +21,8 @@ int main(int argc, char* argv[]){
       cout << "Usage: " << argv[0] << " <serverIP:port> <sourceCodeFileTobeGraded> <loopNum> <sleepTimeSeconds> <timeout-seconds>" << endl;
       return 0;
     }
+
+    //This file is modified for compilation
     string socket_addr(argv[1]);
     int loopNum = atoi(argv[3]);
     int sleep_duration = atoi(argv[4]);
@@ -41,9 +43,9 @@ int main(int argc, char* argv[]){
     int successful_response = 0;
     uint64_t loop_st = chrono::duration_cast<chrono::milliseconds>(chrono::system_clock::now().time_since_epoch()).count();
     int timeoutcount=0;
-    loop1:
-    while(i-- > 0) {
-    // Socket creation
+    outer_while:
+    while(i-- > 0){
+        // Socket creation
     
         int socket_fd = socket(AF_INET, SOCK_STREAM, 0);
         if (socket_fd < 0) { 
@@ -62,31 +64,31 @@ int main(int argc, char* argv[]){
         timeout.tv_usec = 0;
         // Set the receive timeout
         setsockopt(socket_fd, SOL_SOCKET, SO_RCVTIMEO, &timeout, sizeof(timeout)); 
-	if(socket_fd == -1) {
-		perror("Socket reading failed");
-		return -1;
-	}
+        if(socket_fd == -1) {
+          perror("Socket reading failed");
+          return -1;
+        }
         cout << "loop count " << i << endl;
         // Connecting with socket
         int tries=0;
         while(true) { 
-		if(connect(socket_fd, (struct sockaddr *)&address, sizeof(address)) == 0) {
-			break;
-		}
-		sleep(1);
-		tries +=1;
-		cout << "Tries: " << tries << endl;
-		if(tries == MAX_TRIES) {
-			cout << "Server not responding\n";
-			if (errno == EWOULDBLOCK || errno == EAGAIN){ // Handle the timeout error
-                                  timeoutcount++;
-			          cerr<<"Timeout error. No response received"<<endl;
-	                }else{
-                                  cerr << "Error receiving data." << endl;
-                        }
-                        close(socket_fd);
-                        continue loop1;
-			return -1;
+        if(connect(socket_fd, (struct sockaddr *)&address, sizeof(address)) == 0) {
+          break;
+        }
+        sleep(1);
+        tries +=1;
+        cout << "Tries: " << tries << endl;
+        if(tries == MAX_TRIES) {
+        cout << "Server not responding\n";
+        if (errno == EWOULDBLOCK || errno == EAGAIN){ // Handle the timeout error
+                                    timeoutcount++;
+                  cerr<<"Timeout error. No response received"<<endl;
+                    }else{
+                                    cerr << "Error receiving data." << endl;
+                          }
+                          close(socket_fd);
+                          goto outer_while;
+        return -1;
 		}
 
 	}
