@@ -1,9 +1,10 @@
-./comparison-dir/*
-./comp-error-dir/*
-./executable-dir/*
-./load-test-output/*
-./output-dir/*
-./runerror-dir/*
-./submission-dir/*
-./utilization-outputs/*
-./vmstat-output/*
+./"Version 3"/comparison-dir/*
+./"Version 3"/comp-error-dir/*
+./"Version 3"/executable-dir/*
+./"Version 3"/load-test-output/*
+./"Version 3"/output-dir/*
+./"Version 3"/runerror-dir/*
+./"Version 3"/submission-dir/*
+./"Version 3"/utilization-outputs/*
+./"Version 3"/vmstat-output/*
+./"Version 3"/*.o
