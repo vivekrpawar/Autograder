@@ -1,0 +1,16 @@
+loop count 2
+PASS
+bytes read: 0
+loop count 1
+PASS
+bytes read: 0
+loop count 0
+PASS
+bytes read: 0
+Average response time: 2026.33 ms.
+Successful responses: 3
+Time to complete loop: 12083 ms.
+Request sent rate: 0.248283
+Successful request rate: 0.248283
+Timeout rate: 0
+Error rate: 0
