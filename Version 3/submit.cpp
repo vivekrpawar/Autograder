@@ -7,7 +7,7 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <chrono>
-
+//client
 using namespace std;
 
 int main(int argc, char* argv[]){
@@ -81,13 +81,13 @@ int main(int argc, char* argv[]){
         if(tries == MAX_TRIES) {
         cout << "Server not responding\n";
         if (errno == EWOULDBLOCK || errno == EAGAIN){ // Handle the timeout error
-                                    timeoutcount++;
-                  cerr<<"Timeout error. No response received"<<endl;
-                    }else{
-                                    cerr << "Error receiving data." << endl;
-                          }
-                          close(socket_fd);
-                          goto outer_while;
+              timeoutcount++;
+              cerr<<"Timeout error. No response received"<<endl;
+        }else{
+              cerr << "Error receiving data." << endl;
+        }
+        close(socket_fd);
+        goto outer_while;
         return -1;
 		}
 
@@ -105,11 +105,11 @@ int main(int argc, char* argv[]){
                         timeoutcount++;
 			cerr<<"Timeout error. No response received"<<endl;
 	    }else{
-                        cerr << "Error receiving data." << endl;
-            }
-            close(socket_fd);
-            continue;
-        }
+        cerr << "Error receiving data." << endl;
+      }
+      close(socket_fd);
+      continue;
+      }
         
     	ifstream file(program_name);
     
@@ -125,7 +125,7 @@ int main(int argc, char* argv[]){
                         timeoutcount++;
 			cerr<<"Timeout error. No response received"<<endl;
 	    }else{
-                        cerr << "Error receiving data." << endl;
+            cerr << "Error receiving data." << endl;
             }
             close(socket_fd);
             continue;
@@ -140,7 +140,7 @@ int main(int argc, char* argv[]){
     	cout << "bytes read: " << valread << endl;
     	total_rt += et_ms - st_ms;
     	close(socket_fd);
-	sleep(sleep_duration);
+	    sleep(sleep_duration);
     }
     uint64_t loop_et = chrono::duration_cast<chrono::milliseconds>(chrono::system_clock::now().time_since_epoch()).count();
     float total_loop_time = loop_et - loop_st; 

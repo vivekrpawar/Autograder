@@ -17,7 +17,7 @@ int request_count = 0;
 pthread_mutex_t queue_mutex; 
 pthread_cond_t req_ready;
 
-
+//server
 void *grader_thread(void *sockfd) {
     while(true) {
         // Lock queue before accessing 
@@ -84,6 +84,7 @@ int main(int argc, char* argv[]) {
                 perror("Error Accepting connection.");
                 continue;
             }  
+            
             pthread_mutex_lock(&queue_mutex);
             while((rear +1)%MAX_QUEUE_SIZE == front) {
                 pthread_cond_wait(&req_ready, &queue_mutex);
