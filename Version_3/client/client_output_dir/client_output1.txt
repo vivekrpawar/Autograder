@@ -1,0 +1,11 @@
+Server not responding
+Server not responding
+Total response time: 0 ms.
+Average response time: -nan ms.
+Successful responses: 0
+Time to complete loop: 15000 ms.
+Request sent rate: 0.2
+Throughput: 0
+Timeout rate: 0.2
+Total timeouts: 3
+Error rate: 0

@@ -1,0 +1,2 @@
+Overall throughput: 2.206540 requests/sec
+Average response time: 4.06360000000000000000

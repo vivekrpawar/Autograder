@@ -1,0 +1,3 @@
+./submission_dir/202312011503559383file.cpp:11:1: warning: null character(s) ignored
+   11 | <U+0000>
+      | ^~~~~~~~

@@ -1,0 +1,4 @@
+Overall throughput: .5841313 requests/sec
+Average response time: 14.11924000000000000000
+Average number of threads: 8.05208333333333333333
+Average cpu utilization: 42.14583333333333333333
